@@ -1,0 +1,62 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/navbar :: deeHead">
+
+</head>
+<body>
+<a href="offer.html"><img src="images/download.png" class="img-head" alt=""></a>
+<div class="header">
+	<header th:include="fragments/navbar :: header_navbar"></header>
+</div>
+  <!---->
+ <!--banner-->
+<div class="banner-top">
+	<div class="container">
+		<h3 >Login</h3>
+		<h4><a th:href="@{/index}">Home</a><label>/</label>Login</h4>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+<!--login-->
+
+	<div class="login">
+	
+		<div class="main-agileits">
+				<div class="form-w3agile">
+					<h3>Login</h3>
+					<p th:if="${param.error}" class="alert alert-danger">Error, try username and password again</p>
+					<form action="/login" th:action="@{/login}" method="post">
+						<div class="key">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<input  type="text" value="Username" name="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+							<div class="clearfix"></div>
+						</div>
+						<div class="key">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+							<input  type="password" value="password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+							<div class="clearfix"></div>
+						</div>
+						<input type="submit" id="login" th:id="login" value="Login">
+					</form>
+				</div>
+				<div class="forg">
+					<a href="#" class="forg-left">Forgot Password</a>
+					<a href="register.html" class="forg-right">Register</a>
+				<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+
+<!--footer-->
+<footer>
+	<div th:include="fragments/navbar :: footer"></div>
+</footer>
+<!-- //footer-->
+</body>
+</html>

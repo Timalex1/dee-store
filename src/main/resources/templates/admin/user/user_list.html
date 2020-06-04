@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="~{frag :: head}">
+    <meta charset="UTF-8">
+
+       <link th:href="@{webjars/bootstrap/3.0.3/dist/css/bootstrap.min.css}" href="../../../static/css/bootstrap.css" rel='stylesheet' type='text/css'  />
+<!--    <title>DeeStore :: Customer List</title>-->
+</head>
+
+<body>
+    <th:block th:insert="~{frag :: frag_body}"></th:block>
+
+    <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 p-r-0 title-margin-right">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <h1>Dashboard</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                    <div class="col-lg-4 p-l-0 title-margin-left">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <ol class="breadcrumb text-right">
+                                    <li><a href="#">Dashboard</a></li>
+                                    <li class="active">Customer List</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                </div>
+                <!-- /# row -->
+                <section id="main-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card alert">
+                                <div class="card-header pr">
+                                    <h4>All Customer List </h4>
+                                    <div class="search-action">
+                                        <div class="search-type dib">
+                                            <input class="form-control input-rounded" placeholder="#ID type here..." type="text">
+                                        </div>
+                                        <div class="search-type dib">
+                                            <input class="form-control input-rounded" placeholder="Customer Name..." type="text">
+                                        </div>
+                                        <div class="search-type dib">
+                                            <input class="form-control input-rounded" placeholder="Search" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="card-header-right-icon">
+                                        <ul>
+                                            <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
+                                            <li class="card-option drop-menu"><i class="ti-settings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="link"></i>
+                                                <ul class="card-option-dropdown dropdown-menu">
+                                                    <li><a href="#"><i class="ti-loop"></i> Update data</a></li>
+                                                    <li><a href="#"><i class="ti-menu-alt"></i> Detail log</a></li>
+                                                    <li><a href="#"><i class="ti-pulse"></i> Statistics</a></li>
+                                                    <li><a href="#"><i class="ti-power-off"></i> Clear List</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="doc-link"><a href="#"><i class="ti-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table student-data-table m-t-20">
+                                            <thead>
+                                            <tr>
+                                                <th><label><input type="checkbox" value=""></label>ID</th>
+                                                <th>Username</th>
+                                                <th>Name</th>
+                                                <th>Phone Number</th>
+                                                <th>State</th>
+                                                <th>Country</th>
+                                                <th>Registration Date</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="user : ${users}">
+                                                <td th:text="*{user.id}"><label><input type="checkbox" value=""></label></td>
+                                                <td th:text="*{user.username}">
+
+                                                </td>
+                                                <td th:text="*{user.customer.firstName} + ' ' + *{user.customer.lastName}">
+
+                                                </td>
+                                                <td th:text="*{user.customer.customerPhone}">
+
+                                                </td>
+                                                <td th:text="*{user.customer.billingAddress.state}">
+
+                                                </td>
+                                                <td th:text="*{user.customer.billingAddress.country}">
+
+                                                </td>
+                                                <td th:text="*{user.userRegDate}">
+
+                                                </td>
+                                                <td>
+                                                    <span><a href=""><i class="ti-eye color-default"></i></a> </span>
+                                                    <span><a th:href="${'/user/edit/' + user.id}"><i class="ti-pencil-alt color-success"></i></a></span>
+                                                    <span ><a th:href="${'/user/delete/' + user.id}"><i class="ti-trash color-danger"></i></a></span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector("deleteThis").addEventListener('click', event => {
+            // if (confirm('Do you want to proceed and delete this product ? ')){
+            //     window.location('localhost:8080/product/delete/' + product.id)
+            // }
+            console.log("I'm A super winner")
+        })
+    </script>
+
+    <th:block th:include="~{frag :: footer}"></th:block>
+
+</body>
+</html>

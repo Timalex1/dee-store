@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="~{frag :: head}">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <th:block th:insert="~{frag :: frag_body}"></th:block>
+
+    <section id="main-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card alert">
+                    <div class="card-header">
+                        <h4>Product Details</h4>
+                        <div class="card-header-right-icon">
+                            <ul>
+                                <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
+                                <li class="card-option drop-menu"><i class="ti-settings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="link"></i>
+                                    <ul class="card-option-dropdown dropdown-menu">
+                                        <li><a href="#"><i class="ti-loop"></i> Update data</a></li>
+                                        <li><a href="#"><i class="ti-menu-alt"></i> Detail log</a></li>
+                                        <li><a href="#"><i class="ti-pulse"></i> Statistics</a></li>
+                                        <li><a href="#"><i class="ti-power-off"></i> Clear List</a></li>
+                                    </ul>
+                                </li>
+                                <li class="doc-link"><a href="#"><i class="ti-link"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body" th:object="${product}">
+                        <div class="user-profile m-t-15">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="user-photo m-b-30">
+                                        <img class="img-responsive" th:src="@{product.productImage}" alt="" />
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-8">
+                                    <div class="user-profile-name dib" th:text="${product.productName}">Robert Partison</div>
+                                    <div class="useful-icon dib pull-right">
+                                        <span><a th:href="${'/product/edit/' + product.id}"><i class="ti-pencil-alt"></i></a> </span>
+                                        <span><a th:href="@{/product/list}"><i class="ti-printer"></i></a></span>
+<!--                                        <span><a href=""><i class="ti-download"></i></a></span>-->
+                                    </div>
+                                    <span id="productName" th:text="${#request.getParameter('productname')}" hidden></span>
+                                    <div class="custom-tab user-profile-tab">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab" data-toggle="tab">About</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="1">
+                                                <div class="contact-information">
+                                                    <div class="phone-content">
+                                                        <span class="contact-title">Name:</span>
+                                                        <span class="phone-number" th:text="${product.productName}">Robert Partison</span>
+                                                    </div>
+                                                    <div class="gender-content">
+                                                        <span class="contact-title">Description:</span>
+                                                        <span class="gender" th:text="${product.productDescription}">Male</span>
+                                                    </div>
+                                                    <div class="birthday-content">
+                                                        <span class="contact-title">Date Added:</span>
+                                                        <span class="birth-date" th:text="${product.dateCreated}">January 31, 1990 </span>
+                                                    </div>
+                                                    <div class="phone-content">
+                                                        <span class="contact-title">Manufacturer:</span>
+                                                        <span class="phone-number" th:text="${product.productManufacturer}"></span>
+                                                    </div>
+                                                    <div class="email-content">
+                                                        <span class="contact-title">Price:</span>
+                                                        <span class="contact-email" th:text="${product.productPrice}">eduminrobert@gmail.com</span>
+                                                    </div>
+                                                    <div class="email-content">
+                                                        <span class="contact-title">Unit Stock:</span>
+                                                        <span class="contact-email" th:text="${product.unitStock == null ? 'OUT OF STOCK' : product.unitStock}">English</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /# column -->
+        </div>
+        <!-- /# row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer">
+                    <p>This dashboard was generated on <span id="date-time"></span> <a href="#" class="page-refresh">Refresh Dashboard</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <th:block th:include="~{frag :: footer}"></th:block>
+
+    <th:block th:if="${param.success}">
+        <script>
+            (function() {
+                let productName = document.getElementById('productName').innerHTML;
+                toastr.success(productName + ' added successfully','Add Product',{
+                    timeOut: 5000,
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": true,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": true,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut",
+                    "tapToDismiss": false
+                })
+            })();
+        </script>
+    </th:block>
+</body>
+</html>

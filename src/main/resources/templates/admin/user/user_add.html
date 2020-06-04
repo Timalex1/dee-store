@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="~{frag :: head}">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <th:block th:insert="~{frag :: frag_body}"></th:block>
+
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Hello, <span>Welcome Here</span></h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+                <div class="col-lg-4 p-l-0 title-margin-left">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a href="#">Dashboard</a></li>
+                                <li class="active">Add Customer</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+            </div>
+
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card alert">
+                            <div class="card-header mb-4">
+                                <h4>Add Customer</h4>
+                                <div class="card-header-right-icon">
+                                    <ul>
+                                        <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
+                                        <li class="doc-link"><a href="#"><i class="ti-link"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="menu-upload-form">
+                                    <form class="form-horizontal" th:action="@{/user}"  th:object="${user}" method="post">
+                                        <input type="hidden" th:field="*{id}"/>
+                                        <div class="form-group" > <!-- th:class="${#fields.hasErrors('userName')} ? 'form-group has-error' : 'form-group'" -->
+                                            <label class="col-sm-2 control-label">Username</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" th:field="*{username}" class="form-control" placeholder="Type Username">
+                                                <ul>
+<!--                                                    <li th:each="err : ${#fields.errors('userName')}" th:class="text-danger" th:text="${err}"></li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+
+<!--                                        First name-->
+                                        <div class="form-group"> <!--th:class="${#fields.hasErrors('firstName')} ? 'form-group has-error' : 'form-group'" -->
+                                            <label class="col-sm-2 control-label">First Name</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" th:field="*{customer.firstName}" placeholder="Type first name" />
+                                                <ul>
+<!--                                                    <li th:each="err : ${#fields.errors('firstName')}" th:class="text-danger" th:text="${err}"></li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+
+<!--                                        Last name-->
+                                        <div class="form-group" > <!-- th:class="${#fields.hasErrors('lastName')} ? 'form-group has-error' : 'form-group'" -->
+                                            <label class="col-sm-2 control-label">Last Name</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" th:field="*{customer.lastName}" placeholder="Type last name" />
+                                                <ul>
+<!--                                                    <li th:each="err : ${#fields.errors('lastName')}" th:class="text-danger" th:text="${err}"></li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" > <!-- th:class="${#fields.hasErrors('email')} ? 'form-group has-error' : 'form-group'" -->
+                                            <label class="col-sm-2 control-label">E-mail</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" th:field="*{customer.email}" class="form-control" placeholder="Type E-mail">
+                                                <ul>
+<!--                                                    <li th:each="err : ${#fields.errors('email')}" th:class="text-danger" th:text="${err}"></li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <input class="form-control" type="hidden" value="null" th:field="*{customer.billingAddress.state}">
+
+                                        <div class="form-group" > <!-- th:class="${#fields.hasErrors('phoneNumber')} ? 'form-group has-error' : 'form-group'" -->
+                                            <label class="col-sm-2 control-label">Phone Number</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" th:field="*{customer.customerPhone}" placeholder="Enter Phone Number">
+                                                <ul>
+<!--                                                    <li th:each="err : ${#fields.errors('phoneNumber')}" th:class="text-danger" th:text="${err}"></li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" > <!-- th:class="${#fields.hasErrors('password')} ? 'form-group has-error' : 'form-group'"-->
+                                            <label class="col-sm-2 control-label">Password</label>
+                                            <div class="col-sm-10">
+                                                <input type="password" class="form-control" th:field="*{password}" placeholder="Type password">
+                                                <ul>
+<!--                                                    <li th:each="err : ${#fields.errors('password')}"  th:class="text-danger"th:text="${err}"></li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+
+<!--                                        <div class="form-group" th:class="${#fields.hasErrors('passwordConf')} ? 'form-group has-error' : 'form-group'">-->
+<!--                                            <label class="col-sm-2 control-label">Confirm Password</label>-->
+<!--                                            <div class="col-sm-10">-->
+<!--                                                <input type="password" class="form-control" th:field="*{passwordConf}" placeholder="Type confirm password">-->
+<!--                                                <ul>-->
+<!--                                                    <li th:each="err : ${#fields.errors('passwordConf')}" th:class="text-danger" th:text="${err}"></li>-->
+<!--                                                </ul>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-lg btn-primary">Add User</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /# card -->
+                    </div>
+                    <!-- /# column -->
+                </div>
+                <!-- /# row -->
+            </div>
+<!-- /# main content -->
+        </div>
+<!-- /# container-fluid -->
+    </div>
+<!-- /# main -->
+</div>
+<!-- /#content wrap -->
+
+    <div id="search">
+    <button type="button" class="close">×</button>
+    <form>
+        <input type="search" value="" placeholder="type keyword(s) here" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+    <th:block th:include="~{frag :: footer}"></th:block>
+</body>
+</html>
