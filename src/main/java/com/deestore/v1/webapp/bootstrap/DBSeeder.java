@@ -174,36 +174,103 @@ public class DBSeeder implements CommandLineRunner {
 
         List<Product> products = new ArrayList<>();
 
+
+//        SMARTPHONES PRELOAD
+
+        Product smart = new Product();
+        smart.setProductName("Apple IPhone Xs 256GB");
+        smart.setProductDescription("Released 2018, September 21\n" +
+                "208g, 7.7mm thickness\n" +
+                "iOS 12, up to iOS 13.5\n" +
+                "64GB/256GB/512GB storage, no card slot\n" +
+                "6.5\"\n" +
+                "1242x2688 pixels\n" +
+                "12MP\n" +
+                "2160p\n" +
+                "4GB RAM\n" +
+                "Apple A12 Bionic\n" +
+                "3174mAh\n" +
+                "Li-Ion");
+        smart.setProductPrice(new Double(
+                "350000"));
+        smart.setProductImage("https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-xs-max-5.jpg");
+        productService.saveOrUpdate(smart);
+
+
         Product product1 = new Product();
-        product1.setProductName("Panasonic");
-        product1.setProductDescription("Product 1");
+        product1.setProductName("Gionee S11 Lite");
+        product1.setProductDescription("Released 2018, February\n" +
+                "141g, 7.9mm thickness\n" +
+                "Android 7.1, Amigo 5\n" +
+                "32GB storage, microSDXC\n" +
+                "5.7\"\n" +
+                "720x1440 pixels\n" +
+                "13MP\n" +
+                "1080p\n" +
+                "4GB RAM\n" +
+                "Snapdragon 430\n" +
+                "3030mAh\n" +
+                "Li-Ion");
         product1.setProductPrice(new Double(
-                "11.99"));
-        product1.setProductImage("http://example.com/product1");
+                "35600"));
+        product1.setProductImage("https://fdn2.gsmarena.com/vv/pics/gionee/gionee-s11-lite-1.jpg");
         productService.saveOrUpdate(product1);
 
         Product product2 = new Product();
-        product2.setProductName("Canon");
-        product2.setProductDescription("Product 2");
+            product2.setProductName("Nokia 5.1");
+        product2.setProductDescription("Released 2018, August\n" +
+                "150g, 8.3mm thickness\n" +
+                "Android 8.0, up to Android 9.0, Android One\n" +
+                "16GB/32GB storage, microSDXC\n" +
+                "5.5\"\n" +
+                "1080x2160 pixels\n" +
+                "16MP\n" +
+                "1080p\n" +
+                "2/3GB RAM\n" +
+                "MediaTek Helio P18\n" +
+                "2970mAh\n" +
+                "Li-Ion");
         product2.setProductPrice(new Double(
-                "12.99"));
-        product2.setProductImage("http://example.com/product2");
+                "33900"));
+        product2.setProductImage("https://fdn2.gsmarena.com/vv/pics/nokia/nokia-51-0.jpg");
         productService.saveOrUpdate(product2);
 
         Product product3 = new Product();
-        product3.setProductName("Nikon");
-        product3.setProductDescription("Product 3");
+        product3.setProductName("Tecno Camon 15");
+        product3.setProductDescription("Released 2020, February 25\n" +
+                "196g, 8.8mm thickness\n" +
+                "Android 10, HIOS 6.0\n" +
+                "64GB storage, microSDXC\n" +
+                "6.6\"\n" +
+                "720x1600 pixels\n" +
+                "48MP\n" +
+                "1080p\n" +
+                "4GB RAM\n" +
+                "MT6762 Helio P22\n" +
+                "5000mAh\n" +
+                "Li-Po");
         product3.setProductPrice(new Double(
-                "13.99"));
-        product3.setProductImage("http://example.com/product3");
+                "110900"));
+        product3.setProductImage("https://fdn2.gsmarena.com/vv/pics/tecno/tecno-camon-15-1.jpg");
         productService.saveOrUpdate(product3);
 
         Product product4 = new Product();
-        product4.setProductName("Panasonic2");
-        product4.setProductDescription("Product 4");
+        product4.setProductName("Tecno Spark 4");
+        product4.setProductDescription("Released 2019, December\n" +
+                "8.4mm thickness\n" +
+                "Android 9.0, HIOS 5.5\n" +
+                "32GB storage, microSDXC\n" +
+                "6.52\"\n" +
+                "720x1600 pixels\n" +
+                "8MP\n" +
+                "1080p\n" +
+                "2GB RAM\n" +
+                "MT6761 Helio A22\n" +
+                "4000mAh\n" +
+                "Li-Po");
         product4.setProductPrice(new Double(
-                "14.99"));
-        product4.setProductImage("http://example.com/product4");
+                "43500"));
+        product4.setProductImage("https://fdn2.gsmarena.com/vv/bigpic/tecno-spark-4-lite.jpg");
         productService.saveOrUpdate(product4);
 
         Product product5 = new Product();

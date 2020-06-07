@@ -15,6 +15,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link th:href="@{webjars/bootstrap/3.0.3/dist/css/bootstrap.min.css}" href="css/bootstrap.css" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
     <link th:href="@{css/style.css}" rel='stylesheet' type='text/css' />
+    <link th:href="@{css/slick.css}" rel='stylesheet' type='text/css' />
+    <link th:href="@{css/slick-theme.css}" rel='stylesheet' type='text/css' />
+    <link th:href="@{css/nouislider.min.css}" rel='stylesheet' type='text/css' />
     <!-- js -->
     <script src="js/jquery-1.11.1.min.js"></script>
     <!-- //js -->
@@ -63,14 +66,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
 
     <div class="logo">
-        <a th:href="@{/index}"><img src="images/DEE%20STORES.png"></a>
+        <a th:href="@{/index}"><img style="max-height: 170px; max-width: 170px" src="images/deestore22.png"></a>
     </div>
     <div class="head-t">
         <ul class="card">
             <li><a href="wishlist.html" ><i class="fa fa-heart" aria-hidden="true"></i>Wishlist</a></li>
             <li><a th:href="@{/login}" ><i class="fa fa-user" aria-hidden="true"></i>Login</a></li>
             <li><a th:href="@{/register}"><i class="fa fa-arrow-right" aria-hidden="true"></i>Register</a></li>
-            <li><a href="about.html" ><i class="fa fa-file-text-o" aria-hidden="true"></i>Order History</a></li>
             <li><a href="shipping.html" ><i class="fa fa-ship" aria-hidden="true"></i>Shipping</a></li>
 
         </ul>
@@ -104,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li ><a th:href="@{/index}" class="hyper "><span>Home</span></a></li>
 
                     <!--Bata Side-->
-                    <li><a href="#" class="hyper" ><span>Bata</span></a></li>
+                    <li><a href="#" class="hyper"><img style="max-height: 35px; max-width: 35px" th:src="@{images/bata.png}"> </a></li>
 
                     <li class="dropdown ">
                         <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Fashion<b class="caret"></b></span></a>
@@ -259,74 +261,99 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 
 <div th:fragment="footer">
-    <div class="footer">
-        <div class="container">
-            <div class="col-md-3 footer-grid">
-                <h3>About Us</h3>
-                <p>Nam libero tempore, cum soluta nobis est eligendi
-                    optio cumque nihil impedit quo minus id quod maxime
-                    placeat facere possimus.</p>
-            </div>
-            <div class="col-md-3 footer-grid ">
-                <h3>Menu</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="kitchen.html">Kitchen</a></li>
-                    <li><a href="care.html">Personal Care</a></li>
-                    <li><a href="hold.html">Household</a></li>
-                    <li><a href="codes.html">Short Codes</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 footer-grid ">
-                <h3>Customer Services</h3>
-                <ul>
-<!--                    <li><a href="shipping.html">Shipping</a></li>-->
-                    <li><a href="terms.html">Terms & Conditions</a></li>
-                    <li><a href="faqs.html">Faqs</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-<!--                    <li><a href="offer.html">Online Shopping</a></li>-->
-
-                </ul>
-            </div>
-            <div class="col-md-3 footer-grid">
-                <h3>My Account</h3>
-                <ul>
-                    <li><a href="../login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="wishlist.html">Wishlist</a></li>
-
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-            <div class="footer-bottom">
-                <h2 ><a href="index.html"><img src="images/DEE%20STORES.png"></a></h2>
-                <p class="fo-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-                <ul class="social-fo">
-                    <li><a href="#" class=" face"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class=" twi"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class=" pin"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class=" dri"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                </ul>
-                <div class=" address">
-                    <div class="col-md-4 fo-grid1">
-                        <p><i class="fa fa-home" aria-hidden="true"></i>Ikole Ekiti, Ekiti State.</p>
+    <footer id="footer">
+        <!-- top footer -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">About Us</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                            <ul class="footer-links">
+                                <li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-md-4 fo-grid1">
-                        <p><i class="fa fa-phone" aria-hidden="true"></i>+1234 758 839 , +1273 748 730</p>
-                    </div>
-                    <div class="col-md-4 fo-grid1">
-                        <p><a href="mailto:info@example.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>deestore@gmail.com</a></p>
-                    </div>
-                    <div class="clearfix"></div>
 
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Categories</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Hot deals</a></li>
+                                <li><a href="#">Laptops</a></li>
+                                <li><a href="#">Smartphones</a></li>
+                                <li><a href="#">Cameras</a></li>
+                                <li><a href="#">Accessories</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Information</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Orders and Returns</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Service</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">View Cart</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                                <li><a href="#">Track My Order</a></li>
+                                <li><a href="#">Help</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+                <!-- /row -->
             </div>
-            <div class="copy-right">
-                <p> &copy; 2020 Dee store</p>
-            </div>
+            <!-- /container -->
         </div>
-    </div>
+        <!-- /top footer -->
+
+        <!-- bottom footer -->
+        <div id="bottom-footer" class="section">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class="footer-payments">
+                            <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                            <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                        </ul>
+                        <span class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</span>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /bottom footer -->
+    </footer>
     <!-- //footer-->
 
     <!-- smooth scrolling -->
@@ -349,6 +376,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/bootstrap.js"></script>
     <!-- //for bootstrap working -->
     <script type='text/javascript' src="js/jquery.mycart.js"></script>
+    <script type='text/javascript' src="js/slick.min.js"></script>
+    <script type='text/javascript' src="js/nouislider.min.js"></script>
+    <script type='text/javascript' src="js/main.js"></script>
+
+
     <script type="text/javascript">
         $(function () {
 
