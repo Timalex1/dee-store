@@ -217,7 +217,7 @@ public class DBSeeder implements CommandLineRunner {
         productService.saveOrUpdate(product1);
 
         Product product2 = new Product();
-            product2.setProductName("Nokia 5.1");
+            product2.setProductName("Nokia 5.2");
         product2.setProductDescription("Released 2018, August\n" +
                 "150g, 8.3mm thickness\n" +
                 "Android 8.0, up to Android 9.0, Android One\n" +
