@@ -50,20 +50,20 @@ public class DBSeeder implements CommandLineRunner {
         fashion.setName("Fashion");
         categoryRepository.save(fashion);
 
-        Category Electronics = new Category();
-        Electronics.setName("Electronics");
-        Electronics.setParent(fashion);
-        categoryRepository.save(Electronics);
+        Category electronicsCat = new Category();
+        electronicsCat.setName("Electronics");
+//        electronics.setParent(fashion);
+        categoryRepository.save(electronicsCat);
 
-        Category Kitchen = new Category();
-        Kitchen.setName("Kitchen Utensils");
-        Kitchen.setParent(fashion);
-        categoryRepository.save(Kitchen);
+        Category kitchenCat = new Category();
+        kitchenCat.setName("Kitchen Utensils");
+//        Kitchen.setParent(fashion);
+        categoryRepository.save(kitchenCat);
 
         Category child1 = new Category("child1");
-        child1.setParent(Electronics);
+        child1.setParent(electronicsCat);
         Category child2 = new Category("child2");
-        child2.setParent(Kitchen);
+        child2.setParent(kitchenCat);
         Category child3 = new Category("child3");
         child3.setParent(child1);
         categoryRepository.save(child1);
@@ -193,6 +193,7 @@ public class DBSeeder implements CommandLineRunner {
                 "Li-Ion");
         smart.setProductPrice(new Double(
                 "350000"));
+        smart.setFeature(true);
         smart.setProductImage("https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-xs-max-5.jpg");
         productService.saveOrUpdate(smart);
 
@@ -278,6 +279,7 @@ public class DBSeeder implements CommandLineRunner {
         product5.setProductDescription("Product 5");
         product5.setProductPrice(new Double(
                 "15.99"));
+        product5.setFeature(true);
         product5.setProductImage("http://example.com/product5");
         productService.saveOrUpdate(product5);
 
@@ -324,7 +326,9 @@ public class DBSeeder implements CommandLineRunner {
 
         for (Category cat : categoryList ){
             recursiveTree(cat);
+            System.out.println(cat.getName());
         }
+
     }
 
     private void loadRoles() {
@@ -366,20 +370,17 @@ public class DBSeeder implements CommandLineRunner {
     }
 
     public void recursiveTree(Category cat) {
-        System.out.println(cat.getName());
-        List<Product> products = (List<Product>) productService.listAll();
+//        System.out.println(cat.getName());
+        Product product = productService.getById(3l);
 
         if (cat.getChildren().size() > 0) {
             for (Category c : cat.getChildren()) {
                 recursiveTree(c);
-                if (c.getName().equalsIgnoreCase("child3")){
-                    products.forEach( product -> {
-//                        product.addProductToCategory(c);
-//                        productService.saveOrUpdate(product);
-                    });
+                if (c.getName().equalsIgnoreCase("child3")) {
+                    productService.addCategory(product, c);
                 }
             }
-        }
 
+        }
     }
 }

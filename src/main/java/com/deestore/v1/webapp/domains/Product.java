@@ -41,8 +41,14 @@ public class Product implements Serializable {
     @Column(name = "price")
     private Double productPrice;
 
+    @Column(name = "newprice")
+    private Double newPrice = 0.0;
+
     @Column(name = "unit")
     private int unitStock;
+
+    @Column(name = "featured")
+    private boolean feature;
 
     private String productImage;
 

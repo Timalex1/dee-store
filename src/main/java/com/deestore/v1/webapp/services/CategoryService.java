@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface CategoryService extends CRUDService<Category>{
     List<Category> findParent();
+    void removeChildCategory(Category category, Category parent);
+    void addChildCategory(Category category, Category parent);
+    boolean isChildCategory(Category category, Category parent);
 }

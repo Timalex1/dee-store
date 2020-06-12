@@ -38,7 +38,6 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void delete(Long id) {
         Category cat = categoryRepository.findCategoryById(id);
-
         categoryRepository.delete(cat);
     }
 
@@ -46,4 +45,22 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> findParent() {
         return null;
     }
+
+    @Override
+    public void removeChildCategory(Category category, Category parent) {
+        category.setParent(null);
+        categoryRepository.save(category);
+    }
+
+    @Override
+    public void addChildCategory(Category category, Category parent) {
+        category.setParent(parent);
+        categoryRepository.save(category);
+    }
+
+    @Override
+    public boolean isChildCategory(Category category, Category parent) {
+        return category.getParent().equals(parent);
+    }
+
 }

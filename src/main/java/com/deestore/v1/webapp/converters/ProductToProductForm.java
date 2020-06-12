@@ -20,7 +20,7 @@ public class ProductToProductForm implements Converter<Product, ProductForm> {
         productForm.setManufacturer(product.getProductManufacturer());
         productForm.setUnit(product.getUnitStock());
         productForm.setDescription(product.getProductDescription());
-        productForm.setPrice(product.getProductPrice());
+        productForm.setPrice(product.getNewPrice());
         productForm.setImageUrl(product.getProductImage());
 
         return productForm;

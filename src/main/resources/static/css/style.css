@@ -18,6 +18,19 @@ body a{
 	-ms-transition:0.5s all;
 }
 
+a {
+    color: #2B2D42;
+    font-weight: 500;
+    -webkit-transition: 0.2s color;
+    transition: 0.2s color;
+}
+
+a:hover, a:focus {
+    color: #D10024;
+    text-decoration: none;
+    outline: none;
+}
+
 h1,h2,h3,h4,h5,h6{
 	margin:0;
 	font-family: 'Montserrat', sans-serif;	
@@ -38,6 +51,9 @@ ul, ol {
     list-style: none
 }
 
+.no-padding{
+    padding: 0 !important;
+}
 /*--popup--*/
 .agileits {
     padding: 3em;
@@ -182,7 +198,6 @@ img.img-head {
 /*-- header --*/
 .header {
     text-align: center;
-	margin-top: 2em;
 }
 .logo h1{
    font-family: 'Montserrat', sans-serif;
@@ -216,20 +231,20 @@ img.img-head {
     line-height: 8px;
 }
 .head-t {
-    margin: 1em 0;
+    margin-top:1em;
 }
 .card li{
 	display:inline-block;
 }
 .card li a{
 	display:inline-block;
-	color: #999;
+	color: #1b1b1b;
     font-size: 0.9em;
 	margin:0 0.5em;
 }
 .card li a i{
 	margin-right:5px;
-	color: #FAB005;
+	color: #b49e07;
 }
 /*--social--*/
 .social-top li{
@@ -436,16 +451,20 @@ ul.multi-column-dropdown {
 }
 
 nav.navbar.navbar-default {
-    float: left;
+    text-align: center;
     height: 44px;
 }
 .cart{
-	float: right; 
+	float: right;
 	cursor: pointer;
-	margin-top: 11px;
-    width: 9%;
+    /*width: 15%;*/
 }
-
+.white{
+    background-color: #fff;
+    /*width: 10em;*/
+    border-radius: .5em;
+    padding: .4em;
+}
 
 
 
@@ -528,7 +547,7 @@ ul.multi-column-dropdown h6 {
  .navbar-default .navbar-nav > .open > a:focus {
     color: #999;
 }
-span.fa.fa-shopping-cart.my-cart-icon {
+.my-cart-icon {
     position: absolute !important;
     font-size: 1.5em;
     color: #039445;
@@ -557,41 +576,35 @@ span.fa.fa-shopping-cart.my-cart-icon {
     top: 98%;
     left: -275%;
 }
-/*-- //header --*/
-/*--banner--*/
-/*#banner_img {*/
-/*    background: url("../images/DEE STORES banner 1.jpg") no-repeat;*/
-/*}*/
-.banner-info {
-    margin:1em 0;
-	text-align:center;
-}
-.banner-info h3 {
-    color: #000;
-    font-size: 3em;
-    width: 80%;
-    margin: 0 auto 1em;
+
+.head_y{
+    padding:.9em 0px ;
+    background-color: #FCCD1E;
 }
 .search-form {
-    width: 55%;
-    margin: 0 auto;
+    margin-top: .2em;
 }
 .search-form input[type='text']{
-	width: 93%;
+	width: 80%;
     padding: 10px;
     outline: none;
     font-size: 1em;
     color: #000;
-    border: 1px solid #4d4d4d;
-    background: rgba(255, 255, 255, 0.45);
+    border-radius: 8px;
+    border-width: 0.3em;
+    border-style: none;
+    background: rgb(255, 255, 255);
+}
+.search-form input[type='text']::placeholder{
+    color: #282828;
 }
 .search-form input[type='submit']{
-	    width: 40px;
+    width: 40px;
     height: 41px;
     outline: none;
     border: 1px solid #fff;
     background: url(../images/can.png) no-repeat 6px 7px #FCCD1E;
-    display: inline-block;
+    display: inline;
 }
 .search-form input[type='submit']:hover {
     background: url(../images/can.png) no-repeat 6px 7px #039445;
@@ -1912,6 +1925,7 @@ a#myTabDrop1 {
 .product .product-body .product-name {
     text-transform: uppercase;
     font-size: 14px;
+    color: #0f0f10!important;
 }
 
 .product .product-body .product-name>a {
@@ -2778,11 +2792,11 @@ span.last {
 .search-form input[type='text'] {
     width: 92%;
 }
-.search-form {
-    width: 60%;
-    margin: 0 auto;
-    border: 10px #4d4d4d solid;
-}
+/*.search-form {*/
+/*    width: 60%;*/
+/*    margin: 0 auto;*/
+/*    border: 10px #4d4d4d solid;*/
+/*}*/
 .main-agileits {
     width: 50%;
 }
@@ -3049,7 +3063,9 @@ ul.multi-column-dropdown {
     margin: 2em auto;
 }
 .nav-top {
-    margin-bottom: 1em;
+    text-align: center;
+    margin-bottom: 2em;
+    border-bottom: .1em #FCCD1E solid;
 }
 .tabs li {
     display: inline-block;
@@ -3067,9 +3083,9 @@ ul.multi-column-dropdown {
     width: 76%;
     margin: 0 auto;
 }
-.banner-info {
-    margin: 5em 0;
-}
+/*.banner-info {*/
+/*    margin: 5em 0;*/
+/*}*/
 .search-form {
     width: 76%;
 }
@@ -3168,9 +3184,9 @@ a.at-in {
 .search-form {
     width: 93%;
 }
-.banner-info {
-    margin: 4em 0;
-}
+/*.banner-info {*/
+/*    margin: 4em 0;*/
+/*}*/
 .spec h3 {
     font-size: 2.5em;
 }
@@ -3371,9 +3387,9 @@ nav.navbar.navbar-default {
 .pro-1 {
     padding: 0 5px;
 }
-.banner-info {
-    margin: 2em 0;
-}
+/*.banner-info {*/
+/*    margin: 2em 0;*/
+/*}*/
 img.img-head {
     width: 19%;
 }
@@ -3411,7 +3427,7 @@ img.img-head {
     font-size: 0.9em;
 }
 .search-form {
-    width: 95%;
+    width: 90%;
 }
 .spec h3 {
     font-size: 1.7em;

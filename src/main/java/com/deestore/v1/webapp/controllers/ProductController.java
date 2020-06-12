@@ -118,15 +118,8 @@ public class ProductController {
         return "redirect:/product/list" + "?success=true&productname="+product.getProductName();
     }
 
-    public void getAllSubCategory(){
-        for (Category cat : categoryRepository.findByParentIsNull()) {
-            recursiveTree(cat);
-        }
-    }
     //Recursive method to loop through into the Sub Categories of Products
     public void recursiveTree(Category cat) {
-//        System.out.println(cat.getName);
-
         if (cat.getChildren().size() > 0) {
             for (Category c : cat.getChildren()) {
                 if(c.getChildren().size() == 0){
